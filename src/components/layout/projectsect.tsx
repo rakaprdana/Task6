@@ -5,7 +5,7 @@ const ProjectSect = () => {
     <>
       <section
         id="project"
-        className="flex flex-col items-center justify-center mt-28"
+        className="flex flex-col items-center justify-center mt-28 text-zinc-300"
       >
         <h1 className="text-6xl">Projects</h1>
         <hr className="border border-zinc-400 w-1/2 my-4" />

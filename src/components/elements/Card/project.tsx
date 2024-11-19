@@ -6,6 +6,7 @@ import MLP from "../../../assets/project/mlp.png";
 import ObjDetect from "../../../assets/project/objdetect.png";
 import TrafficPred from "../../../assets/project/trafficpred.png";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const image = [
   EcoSwap,
@@ -19,7 +20,7 @@ const image = [
 interface ProjectProps {
   id: number;
   name: string;
-  desc: string;
+  description: string;
   image: string;
 }
 const CardProject = () => {
@@ -60,7 +61,8 @@ const CardProject = () => {
     <>
       <div className="flex gap-4 overflow-x-auto w-11/12 px-8 my-16 hide-scrollbar">
         {project.map((project) => (
-          <div
+          <Link
+            to={`/project/${project.id}`}
             key={project.id}
             className="min-w-[300px] max-w-sm bg-white rounded-lg shadow dark:bg-zinc-800 hover:bg-zinc-700 duration-700"
           >
@@ -78,10 +80,10 @@ const CardProject = () => {
                 </h5>
               </a>
               <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
-                {project.desc}
+                {project.description}
               </p>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
     </>
