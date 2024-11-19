@@ -1,0 +1,30 @@
+[
+  {
+    "name": "EcoSwap",
+    "description": "Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order."
+  },
+  {
+    "name": "Github Page Project",
+    "description": "A simple Github Page showcasing various coding projects and resources."
+  },
+  {
+    "name": "Mini Library Management",
+    "description": "An application to manage and organize books in a small library."
+  },
+  {
+    "name": "Personal Portfolio",
+    "description": "A personal portfolio showcasing skills, projects, and experiences."
+  },
+  {
+    "name": "Machine Learning Pipeline",
+    "description": "A project for creating a machine learning pipeline to automate workflows."
+  },
+  {
+    "name": "Object Detection System",
+    "description": "A system that uses deep learning models to detect and classify objects in images."
+  },
+  {
+    "name": "Traffic Prediction System",
+    "description": "A traffic prediction model to predict the traffic flow based on various factors."
+  }
+]

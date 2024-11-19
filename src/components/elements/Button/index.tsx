@@ -1,11 +1,15 @@
 interface ButtonProps {
   label: string;
+  onClick: () => void;
 }
 
-const Button = ({ label }: ButtonProps) => {
+const Button = ({ label, onClick }: ButtonProps) => {
   return (
     <>
-      <button className="mt-8 p-4 rounded-sm bg-stone-800 hover:bg-stone-900 active:bg-stone-950 duration-700">
+      <button
+        onClick={onClick}
+        className="mt-8 p-4 rounded-sm bg-stone-800 hover:bg-zinc-800 active:bg-stone-950 duration-700"
+      >
         {label}
       </button>
     </>
