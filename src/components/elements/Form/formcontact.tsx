@@ -1,6 +1,7 @@
 import { ChangeEvent, FormEvent, useState } from "react";
 import Button from "../Button";
 import Input from "../Input";
+import ModalSuccess from "../../modal/success";
 
 interface FormProps {
   name: string;
@@ -14,6 +15,7 @@ const FormContact = () => {
     email: "",
     message: "",
   });
+  const [isModal, setIsModal] = useState<boolean>(false);
 
   const handleChange = (
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -24,7 +26,22 @@ const FormContact = () => {
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if (
+      formData.name.trim() === "" ||
+      formData.email.trim() === "" ||
+      formData.message.trim() === ""
+    ) {
+      alert("Please fill in all the fields before sending a message.");
+      return;
+    }
+
     console.log(formData);
+    setIsModal(true);
+    setFormData({
+      name: "",
+      email: "",
+      message: "",
+    });
   };
 
   return (
@@ -60,6 +77,7 @@ const FormContact = () => {
           placeholder="Your message"
         />
         <Button type="submit" label="Send message" />
+        <ModalSuccess isOpen={isModal} onClose={() => setIsModal(false)} />
       </div>
     </form>
   );
