@@ -4,7 +4,7 @@ import ImageCard from "../elements/Card/image";
 const Contact = () => {
   return (
     <>
-      <hr className="border border-stone-400 w-3/4" />
+      <hr className="border border-stone-400 w-3/4 mt-36" />
       <div className="flex items-center justify-between mx-16 mt-16">
         <ImageCard />
         <FormContact />
