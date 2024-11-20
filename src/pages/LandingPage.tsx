@@ -11,7 +11,12 @@ import SkillSect from "../components/layout/skillsect";
 import { useNavigate } from "react-router-dom";
 import { Typewriter } from "react-simple-typewriter";
 const LandingPage = () => {
-  const navigate = useNavigate();
+  const handleClick = () => {
+    const contactSection = document.getElementById("contact") as HTMLElement;
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: "smooth" });
+    }
+  };
   return (
     <>
       <Navbar />
@@ -28,11 +33,7 @@ const LandingPage = () => {
             delaySpeed={1000}
           />
         </p>
-        <Button
-          type="button"
-          onClick={() => navigate("/contact")}
-          label="Contact Me"
-        />
+        <Button type="button" onClick={handleClick} label="Contact Me" />
         <button
           type="button"
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
@@ -46,7 +47,7 @@ const LandingPage = () => {
       <ProjectSect />
       <CertiSect />
       <GallerySect />
-      <Contact />
+      <Contact id="contact" />
       <Footer />
     </>
   );
