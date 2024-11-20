@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import LandingPage from "./pages/LandingPage";
 import "boxicons/css/boxicons.min.css";
 import ProjectDetail from "./pages/ProjectDetail";
+import GalleryPage from "./pages/Gallery";
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
           <Routes>
             <Route path="/" element={<LandingPage />} />
             <Route path="/project/:id" element={<ProjectDetail />} />
+            <Route path="/gallery" element={<GalleryPage />} />
           </Routes>
         </div>
       </Router>

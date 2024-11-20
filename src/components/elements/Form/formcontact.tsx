@@ -30,35 +30,37 @@ const FormContact = () => {
   return (
     <form
       onSubmit={handleSubmit}
-      className="bg-zinc-700 flex flex-col items-center justify-center w-1/2 px-20 py-8 rounded-lg"
+      className="bg-zinc-700 flex flex-col w-1/2 px-20 py-8 rounded-lg"
     >
       <h1 className="text-3xl font-bold mb-8">
         Send me a message if you're interested
       </h1>
-      <Input
-        type="text"
-        name="name"
-        value={formData.name}
-        onChange={handleChange}
-        placeholder="Your name"
-        icon="bx bxs-user"
-      />
-      <Input
-        type="email"
-        name="email"
-        value={formData.email}
-        onChange={handleChange}
-        placeholder="Your email"
-        icon="bx bxs-envelope"
-      />
-      <textarea
-        name="message"
-        value={formData.message}
-        onChange={handleChange}
-        className="bg-stone-600 w-full pb-48 px-4 pt-4 rounded-lg"
-        placeholder="Your message"
-      />
-      <Button type="submit" label="Send message" />
+      <div className="flex flex-col items-start">
+        <Input
+          type="text"
+          name="name"
+          value={formData.name}
+          onChange={handleChange}
+          placeholder="Your name"
+          icon="bx bxs-user"
+        />
+        <Input
+          type="email"
+          name="email"
+          value={formData.email}
+          onChange={handleChange}
+          placeholder="Your email"
+          icon="bx bxs-envelope"
+        />
+        <textarea
+          name="message"
+          value={formData.message}
+          onChange={handleChange}
+          className="bg-stone-600 w-full pb-48 px-4 pt-4 rounded-lg"
+          placeholder="Your message"
+        />
+        <Button type="submit" label="Send message" />
+      </div>
     </form>
   );
 };

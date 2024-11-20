@@ -9,7 +9,9 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import Button from "../components/elements/Button";
 import Copyright from "../components/layout/copyright";
-
+import AOS from "aos";
+import "aos/dist/aos.css";
+AOS.init();
 interface ProjectProps {
   id: number;
   name: string;
@@ -30,8 +32,6 @@ const images: { [key: number]: string } = {
 const ProjectDetail = () => {
   const { id } = useParams<{ id: string }>();
   const [project, setProject] = useState<ProjectProps | null>(null);
-  const [isLoading, setIsLoading] = useState<boolean>(true);
-  const [error, setError] = useState<string | null>(null);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -53,9 +53,7 @@ const ProjectDetail = () => {
           image: images[parseInt(id)] || "default.jpg", // Fallback to default image if none found
         });
       } catch (error) {
-        setError(error.message);
-      } finally {
-        setIsLoading(false);
+        console.log("Message: ", error);
       }
     };
     fetchDetailProject();
@@ -71,9 +69,6 @@ const ProjectDetail = () => {
     const backId = currentId > 1 ? currentId - 1 : Object.keys(images).length;
     navigate(`/project/${backId}`);
   };
-  if (isLoading) {
-    return <p>Loading...</p>;
-  }
 
   if (!project) {
     return <p>Project not found</p>;
@@ -87,13 +82,21 @@ const ProjectDetail = () => {
       </div>
       <div className="flex flex-col items-center pb-20">
         <h1 className="text-5xl font-bold mb-8">Project Detail</h1>
-        <div className="flex items-center py-8 mx-12 space-x-8">
+        <div
+          data-aos="fade-right"
+          data-aos-duration="1000"
+          className="flex items-center py-8 mx-12 space-x-8"
+        >
           <img
             src={project.image}
             alt={project.name}
             className="w-2/5 rounded-md border"
           />
-          <div className="bg-stone-800 p-8 space-y-4 rounded-xl">
+          <div
+            data-aos="fade-up"
+            data-aos-duration="500"
+            className="bg-stone-800 p-8 space-y-4 rounded-xl"
+          >
             <h1 className="text-5xl">{project.name}</h1>
             <hr className="border border-white w-1/2" />
             <p>{project.detail}</p>

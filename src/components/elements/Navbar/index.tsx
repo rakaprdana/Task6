@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const Navbar = () => {
   return (
     <>
@@ -21,6 +23,7 @@ const Navbar = () => {
             <i className="bx bxl-instagram" />
             <p>Instagram</p>
           </a>
+          <Link to={"/gallery"}>Gallery</Link>
         </div>
       </nav>
     </>

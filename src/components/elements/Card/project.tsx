@@ -7,7 +7,9 @@ import ObjDetect from "../../../assets/project/objdetect.png";
 import TrafficPred from "../../../assets/project/trafficpred.png";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-
+import AOS from "aos";
+import "aos/dist/aos.css";
+AOS.init();
 const image = [
   EcoSwap,
   GithubPage,
@@ -59,12 +61,16 @@ const CardProject = () => {
   }
   return (
     <>
-      <div className="flex gap-4 overflow-x-auto w-11/12 px-8 my-16 hide-scrollbar">
+      <div
+        data-aos="fade-up"
+        data-aos-duration="1000"
+        className="flex gap-4 overflow-x-auto w-11/12 p-8 my-16 hide-scrollbar"
+      >
         {project.map((project) => (
           <Link
             to={`/project/${project.id}`}
             key={project.id}
-            className="min-w-[300px] max-w-sm bg-white rounded-lg shadow dark:bg-zinc-800 hover:bg-zinc-700 duration-700"
+            className="min-w-[300px] max-w-sm py-8 bg-white rounded-lg shadow dark:bg-zinc-800 hover:bg-zinc-700 hover:-translate-y-5 duration-700"
           >
             <a href="">
               <img
